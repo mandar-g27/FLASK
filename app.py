@@ -25,7 +25,7 @@ def handle_connect():
         gender = random.choice(["girl", "boy"])
     
     # Remove any extra whitespace in avatar_url (if needed)
-    avatar_url = f"https://avatar.iran.liara.run/public/{gender}?username={username}".strip()
+    avatar_url = f"https://avatar.iran.liara.run/public/{gender}?username={username}"
     
     users[request.sid] = {"username": username, "avatar": avatar_url}
     
@@ -59,7 +59,7 @@ def handle_update_username(data):
     emit("username_updated", {
         "old_username": old_username,
         "new_username": new_username
-    }, broadcast=True)
+        }, broadcast=True)
 
 if __name__ == "__main__":
     socketio.run(app)
